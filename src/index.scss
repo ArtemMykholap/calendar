@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+ul{
+  padding:0;
+  margin:0;
+}
+body{
+  background-color:rgb(248, 248, 248);
+}
+
+.container {
+  height: 100vh;
+}
+.background-for-border{
+  display: inline-block;
+  position: absolute;
+  width:20px;
+  height:100vh;
+  background-color: #fff;
+}
+.header {
+  /* position:fixed;
+  background-color: #fff; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80px;
+  align-items: flex-start;
+  border: 1px solid  rgb(231, 231, 231);
+}
+.navigation-container{
+  margin: 20px;
+}
+.month-day{
+  font-size: 30px;
+  color: rgb(180, 179, 179)
+}
+.weekday{
+  color: #8a8a8a;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.active{
+  background-color: #5782ec;
+  color: rgb(255, 255, 255);
+  width: 50px;
+  align-items: center;
+  /* text-align: center; */
+  justify-content: center;
+  display: flex;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.time{
+  width:40px;
+}
+.time-in-column{
+  font-size:12px;
+  color:#8a8a8a;
+  position: relative;
+    top: 20px;
+}
+
+.navigation {
+  margin-left: 27px;
+  font-weight: 400;
+}
+
+
+.text-month{
+  font-size: 27px;
+  color: rgb(204, 204, 204);
+  vertical-align: middle;
+}
+
+.table-header,
+.table-content {
+  display: flex;
+  list-style-type: none;
+}
+
+
+.create-button{
+  font-weight:400;
+  width: 140px;
+  border-radius: 25px;
+  height: 45px;
+  border: none;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5); 
+  outline: none !important; 
+}
+
+
+.button-text{
+  font-weight:400;
+  color:#8a8a8a ;
+  
+}
+.today-button{
+  width: 100px;
+  border-radius: 5px;
+  border: none;
+  height: 45px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5); 
+  outline: none !important; 
+}
+
+.create-button:hover,
+.today-button:hover {
+  box-shadow: 0 0 0 2px #c2c2ff;
+}
+
+
+.toggle-left,
+.toggle-right{
+  color: #afafaf;
+  background: none;
+  border: none;
+  margin-left: 22px;
+  outline: none !important; 
+}
+
+
+.item-header{
+  flex-grow: 1;
+  align-items: center;
+  min-width: 180px;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid;
+  border-image: 
+  linear-gradient(
+    to bottom, 
+    #ffffff, 
+    #e7e7e7
+  ) 1 90%;
+}
+
+
+.item-content{
+  flex-grow: 1;
+}
+.fa-plus{
+  color: #7397ef;
+  margin-right: 10px;
+}
+
+.item-header-time,
+.item-time-first-column{
+  color: #797979;
+  font-weight: 300;
+  flex-grow: 1;
+  align-items: center;
+  min-width: 70px;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #e7e7e7 ;
+  position: relative;
+}
+
+
+
+
+.item-time{
+  flex-grow: 1;
+  align-items: center;
+  min-width: 180px;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid  #e7e7e7;;
+}
+
+
+/* task */
+.task{
+position: absolute;
+padding: 15px;
+ width: 150px;
+ height:70px;
+ border-radius: 10px;
+ background-color: #2665c5;
+ color:#fff;
+ font-size: 12px;
+}
+
+
+.time-of-task{
+  font-weight: 300;
+  padding-top: 10px;
+}
+
+
+ .modal-form {
+   display: none;
+  font-size: 14px;
+  font-weight:400;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  padding: 25px;
+  background: #ffffff;
+  box-shadow: 0 0 10px #00000080; 
+  border-radius: 8px;
+  height: 420px;
+  width: 480px;
+}
+
+.modal-form__title{
+  font-size: 24px;
+  font-weight: 400;
+  margin-left: 50px;
+  color: #484646;
+}
+
+.modal-form__line{
+  background-color: #4184ff;
+  height: 2px;
+  width: 370px;
+  margin-top: 4px;
+  margin-left: 50px;
+}
+
+
+.modal-from__button-close{
+  position: relative;
+  border: none;
+  background-color: #fff;
+  left: 400px;
+  color: grey;
+  outline: none !important;
+} 
+.button-save{
+  position: relative;
+  top: 240px;
+  left: 310px;
+  height: 40px;
+  width: 110px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: #4184ff;
+  outline: none !important;
+}
+.description{
+  position: relative;
+  top: 160px;
+  font-weight: 400;
+  font-size: 16px;
+  color:rgb(124, 124, 124)
+}
+
+
+.data{
+  position: relative;
+  top: 100px;
+  font-size: 16px;
+  color:rgb(124, 124, 124)
+}
+
+
+.text-modal{
+  padding: 25px;
+}
