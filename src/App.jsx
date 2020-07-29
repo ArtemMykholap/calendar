@@ -7,7 +7,6 @@ import Week from './Week';
 const App = () => {
     return (<>
         <div className="container">
-            <Header  />
             <Navigation/>
             <div className="calendar">
                 <ul className="table-content">
