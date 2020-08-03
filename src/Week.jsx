@@ -1,16 +1,15 @@
 import React from 'react';
-import { DAYS } from './constants/days'
 import Day from './Day'
 
+const Week = ({ days }) => {
 
 
-const Week = () => {
-
-
-    return (<>
-        {DAYS.map(day => <Day key={day} />)}
-    </>
+    return (
+        <>
+            {days.map(day => <Day key={day} dataId={day} />)}
+        </>
     )
 }
+
 export default Week
 

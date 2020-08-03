@@ -184,25 +184,27 @@ body{
 
 /* task */
 .task{
-position: absolute;
-padding: 15px;
- width: 150px;
- height:70px;
- border-radius: 10px;
- background-color: #2665c5;
- color:#fff;
- font-size: 12px;
+
+      position: absolute;
+      padding: 15px;
+      width: 178px;
+      height: 60px;
+      border-radius: 0px;
+      background-color: #2665c5;
+      color: #fff;
+      font-size: 12px;
 }
 
+.task-check{
+  background-color: #5f728f;
+}
 
 .time-of-task{
   font-weight: 300;
   padding-top: 10px;
 }
 
-
  .modal-form {
-   display: none;
   font-size: 14px;
   font-weight:400;
   position: absolute;
@@ -221,6 +223,9 @@ padding: 15px;
   font-weight: 400;
   margin-left: 50px;
   color: #484646;
+  border: none;
+  outline: none !important;
+  
 }
 
 .modal-form__line{
@@ -239,6 +244,7 @@ padding: 15px;
   left: 400px;
   color: grey;
   outline: none !important;
+
 } 
 .button-save{
   position: relative;
@@ -254,10 +260,12 @@ padding: 15px;
 }
 .description{
   position: relative;
-  top: 160px;
+  top: 190px;
   font-weight: 400;
   font-size: 16px;
-  color:rgb(124, 124, 124)
+  color: #7c7c7c;
+  display: flex;
+
 }
 
 
@@ -265,10 +273,15 @@ padding: 15px;
   position: relative;
   top: 100px;
   font-size: 16px;
-  color:rgb(124, 124, 124)
+  color:rgb(124, 124, 124);
 }
 
 
 .text-modal{
-  padding: 25px;
+  margin-left: 20px;
+  border: none;
+  color: rgb(136, 161, 197);
+  outline: none !important;
+  resize: none;
+  width: 200px;
 }
