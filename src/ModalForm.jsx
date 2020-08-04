@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { tasks } from './Event.jsx';
+import App from './App'
 
 class ModalForm extends Component {
     constructor() {
@@ -7,17 +7,27 @@ class ModalForm extends Component {
         this.state = {
             title: '',
             description: '',
-            time: ''
+            timeStart: '',
+            timeFinish: '',
+            date: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event) {
-        alert(` shos take ${this.state.title} a takoj ${this.state.description} a takkkoj ${this.state.time}`);
-        event.preventDefault();
+        this.props.onClose()
+        // this.props.tasks.push({
+        //     text: this.state.title,
+        //     description: this.state.description,
+        //     timeStart: this.state.timeStart,
+        //     timeFinish: this.state.timeFinish,
+        //     date: this.state.date
+        // })
 
+        event.preventDefault();
     }
+
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value })
@@ -27,7 +37,7 @@ class ModalForm extends Component {
         const { isOpen, onClose } = this.props
         if (!isOpen) { return null }
 
-        return (
+        return (<>
             <form onSubmit={this.handleSubmit} className="modal-form">
                 <button className='modal-from__button-close'
                     onClick={onClose}>
@@ -35,17 +45,21 @@ class ModalForm extends Component {
                 </button>
                 <input autoComplete="off"
                     value={this.state.value}
-                    onChange={this.handleChange}
+                    onSelect={this.handleChange}
                     type='text' name='title'
                     className='modal-form__title' />
                 <div className='modal-form__line'></div>
                 <label className='data'>
                     <i className="fa fa-clock-o" aria-hidden="true"></i>
-                    <input type="date" 
-                    />
                     <input onChange={this.handleChange}
-                        time={this.state.time} 
-                        type="time" id="time" />
+                        value={this.state.value}
+                        type="date" id="date" name='date' />
+                    <input onChange={this.handleChange}
+                        value={this.state.value}
+                        type="time" id="timeStart" name='timeStart' />
+                    <input onChange={this.handleChange}
+                        value={this.state.value}
+                        type="time" id="'timeFinish" name='timeFinish' />
                 </label>
                 <label className='description'>
                     <i className="fa fa-bars" aria-hidden="true"></i>
@@ -57,8 +71,17 @@ class ModalForm extends Component {
                         description={this.state.description}>
                     </textarea>
                 </label>
-                <input type='submit' value='Сохранить' className='button-save' />
+                <input
+                    type='submit'
+                    value='Сохранить'
+                    className='button-save'
+                />
+
             </form>
+            <App  />
+        </>
+
+
         )
     }
 }

@@ -7,12 +7,18 @@ import ModalForm from './ModalForm'
 
 
 
+export
 
 class App extends Component {
 
     state = {
         currentDate: moment().week('week'),
         isOpen: false,
+        tasks :[
+            {title: 'breakfest',description: 'breakfestbreakfest',timeStart: '12:30',timeFinish: '14:00',date: '2020-29-07'},
+            {title: 'dinner',description: 'breakfestbreakfest',timeStart: '11:30',timeFinish: '12:00',date: '2020-10-08'},
+            {title: 'supper',description: 'breakfestbreakfest',timeStart: '12:30', timeFinish: '14:00',date: '2020-03-08' }
+        ]
     }
 
     hideForm = () => {
@@ -71,11 +77,11 @@ class App extends Component {
                             <Sidebar />
                         </li>
                         <Week 
-                    days={days}/>
+                    days={days} tasks={this.state.tasks}/>
                     </ul>
                 </div>
                 <ModalForm  isOpen={this.state.isOpen}
-                    onClose={this.hideForm}
+                    onClose={this.hideForm} tasks={this.state.tasks}
                    />
             </div>
 

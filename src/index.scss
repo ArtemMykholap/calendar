@@ -180,15 +180,15 @@ body{
   justify-content: center;
   border: 1px solid  #e7e7e7;;
 }
-
+.calendar{
+  position: relative;
+}
 
 /* task */
 .task{
-
       position: absolute;
       padding: 15px;
       width: 178px;
-      height: 60px;
       border-radius: 0px;
       background-color: #2665c5;
       color: #fff;
