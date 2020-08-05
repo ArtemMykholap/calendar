@@ -13,32 +13,28 @@ class App extends Component {
         currentDate: moment().week('week'),
         isOpen: false,
         tasks: [
-            { title: 'breakfest', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-29-07' },
-            { title: 'dinner', description: 'breakfestbreakfest', timeStart: '11:30', timeFinish: '12:00', date: '2020-10-08' },
-            { title: 'supper', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-03-08' }
+            { title: 'breakfest', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-07-29' },
+            { title: 'dinner', description: 'breakfestbreakfest', timeStart: '11:30', timeFinish: '12:00', date: '2020-08-10' },
+            { title: 'supper', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-08-03' }
         ]
     }
 
 
-    handleSubmit = (e) => {
-        console.log(e)
-        debugger
-        this.setState(state => {
-            let tasks = state.tasks.push({
-                title: e.target.title,
-                description: e.target.description,
-                timeStart: e.target.timeStart,
-                timeFinish: e.target.timeFinish,
-                date: e.target.date
-            })
+    handleSubmit = (value, e) => {
+        e.preventDefault();
 
-            return {
-                tasks,
-            };
+        const newTask = {
+            title: value.title,
+            description: value.description,
+            timeStart: value.timeStart,
+            timeFinish: value.timeFinish,
+            date: value.date
+        }
+
+        this.setState(function(prevState){
+            return {tasks: [...prevState.tasks, newTask]}
         });
-
-        onClose()
-        event.preventDefault();
+        this.hideForm()
     }
 
     hideForm = () => {
@@ -70,13 +66,11 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state.tasks)
-
         let currentDate = this.state.currentDate;
         let weekStart = currentDate.clone().startOf('isoWeek');
         let days = [];
         for (let i = 0; i <= 6; i++) {
-            days.push(moment(weekStart).add(i, 'days').format("YYYY-DD-MM dddd"));
+            days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD dddd"));
         }
         let nameMonthFirstDay = weekStart.format("MMMM");
         let nameMonthLastDay = currentDate.clone().endOf('isoWeek').format("MMMM");
@@ -104,7 +98,7 @@ class App extends Component {
                 <ModalForm isOpen={this.state.isOpen}
                     onClose={this.hideForm}
                     tasks={this.state.tasks}
-                    handleSubmit={(e) => this.handleSubmit(e)}
+                    handleSubmit={this.handleSubmit}
                 />
             </div>
 

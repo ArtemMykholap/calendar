@@ -28,7 +28,7 @@ class ModalForm extends Component {
         const { isOpen, onClose, handleSubmit } = this.props
         if (!isOpen) { return null }
         return (<>
-            <form onSubmit={(e) => this.handleSubmit(e)} className="modal-form">
+            <form onSubmit={(e) => handleSubmit(this.state, e)} className="modal-form">
                 <button className='modal-from__button-close'
                     onClick={onClose}>
                     <i className="fa fa-times" aria-hidden="true"></i>
@@ -61,11 +61,12 @@ class ModalForm extends Component {
                         description={this.state.description}>
                     </textarea>
                 </label>
-                <input
+                <button
                     type='submit'
-                    value='Сохранить'
                     className='button-save'
-                />
+                >
+                    Сохранить
+                </button>
 
             </form>
             <App />
