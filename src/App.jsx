@@ -7,18 +7,38 @@ import ModalForm from './ModalForm'
 
 
 
-export
-
 class App extends Component {
 
     state = {
         currentDate: moment().week('week'),
         isOpen: false,
-        tasks :[
-            {title: 'breakfest',description: 'breakfestbreakfest',timeStart: '12:30',timeFinish: '14:00',date: '2020-29-07'},
-            {title: 'dinner',description: 'breakfestbreakfest',timeStart: '11:30',timeFinish: '12:00',date: '2020-10-08'},
-            {title: 'supper',description: 'breakfestbreakfest',timeStart: '12:30', timeFinish: '14:00',date: '2020-03-08' }
+        tasks: [
+            { title: 'breakfest', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-29-07' },
+            { title: 'dinner', description: 'breakfestbreakfest', timeStart: '11:30', timeFinish: '12:00', date: '2020-10-08' },
+            { title: 'supper', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-03-08' }
         ]
+    }
+
+
+    handleSubmit = (e) => {
+        console.log(e)
+        debugger
+        this.setState(state => {
+            let tasks = state.tasks.push({
+                title: e.target.title,
+                description: e.target.description,
+                timeStart: e.target.timeStart,
+                timeFinish: e.target.timeFinish,
+                date: e.target.date
+            })
+
+            return {
+                tasks,
+            };
+        });
+
+        onClose()
+        event.preventDefault();
     }
 
     hideForm = () => {
@@ -50,6 +70,7 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.state.tasks)
 
         let currentDate = this.state.currentDate;
         let weekStart = currentDate.clone().startOf('isoWeek');
@@ -70,19 +91,21 @@ class App extends Component {
                     nameMonthLastDay={nameMonthLastDay}
                     days={days}
                     isOpen={this.state.isOpen}
-                    showForm={this.showForm}/>
+                    showForm={this.showForm} />
                 <div className="calendar">
                     <ul className="table-content">
                         <li className='item-content-time'>
                             <Sidebar />
                         </li>
-                        <Week 
-                    days={days} tasks={this.state.tasks}/>
+                        <Week
+                            days={days} tasks={this.state.tasks} />
                     </ul>
                 </div>
-                <ModalForm  isOpen={this.state.isOpen}
-                    onClose={this.hideForm} tasks={this.state.tasks}
-                   />
+                <ModalForm isOpen={this.state.isOpen}
+                    onClose={this.hideForm}
+                    tasks={this.state.tasks}
+                    handleSubmit={(e) => this.handleSubmit(e)}
+                />
             </div>
 
         </>

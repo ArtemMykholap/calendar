@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import App from './App'
 
+// +задать пустой стейт для инпутов
+// +Передать данные инпутов в объект сабмитом
+// +Добавить в массив объектов событий
+// перерендерить отрисовку событий
+
 class ModalForm extends Component {
     constructor() {
         super();
@@ -12,33 +17,18 @@ class ModalForm extends Component {
             date: ''
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    handleSubmit(event) {
-        this.props.onClose()
-        // this.props.tasks.push({
-        //     text: this.state.title,
-        //     description: this.state.description,
-        //     timeStart: this.state.timeStart,
-        //     timeFinish: this.state.timeFinish,
-        //     date: this.state.date
-        // })
-
-        event.preventDefault();
-    }
-
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value })
     }
 
     render() {
-        const { isOpen, onClose } = this.props
-        if (!isOpen) { return null }
 
+        const { isOpen, onClose, handleSubmit } = this.props
+        if (!isOpen) { return null }
         return (<>
-            <form onSubmit={this.handleSubmit} className="modal-form">
+            <form onSubmit={(e) => this.handleSubmit(e)} className="modal-form">
                 <button className='modal-from__button-close'
                     onClick={onClose}>
                     <i className="fa fa-times" aria-hidden="true"></i>
@@ -78,7 +68,7 @@ class ModalForm extends Component {
                 />
 
             </form>
-            <App  />
+            <App />
         </>
 
 
