@@ -28,7 +28,7 @@ class Navigation extends Component {
                         <span className='item-header__time'>gtp</span>
                     </li>
                     {days.map(day => {
-                        const date = day.split(' ')[0].split('-')[1];
+                        const date = day.split(' ')[0].split('-')[2];
                         const weekDay = day.split(' ')[1];
                         return (
                             <li className='item-header' key={day}>

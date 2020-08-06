@@ -31,11 +31,17 @@ class App extends Component {
             date: value.date
         }
 
-        this.setState(function(prevState){
-            return {tasks: [...prevState.tasks, newTask]}
+        this.setState(function (prevState) {
+            return { tasks: [...prevState.tasks, newTask] }
         });
         this.hideForm()
     }
+    // вешаем обработчик на контекстное меню,представлющее собой кнопку удаления
+    // скрываем контекстное меню при клике вне области меню
+
+    // фильтруем массив задач на все,кроме указаного ивента.
+    // выводим новый массив ивентов
+
 
     hideForm = () => {
         this.setState({
@@ -92,7 +98,9 @@ class App extends Component {
                             <Sidebar />
                         </li>
                         <Week
-                            days={days} tasks={this.state.tasks} />
+                            days={days} tasks={this.state.tasks}
+                            contextMenu={this.state.contextMenu}
+                            showForm={this. showContextMenu} />
                     </ul>
                 </div>
                 <ModalForm isOpen={this.state.isOpen}

@@ -191,6 +191,7 @@ body{
       width: 178px;
       border-radius: 0px;
       background-color: #2665c5;
+      box-shadow: 0 0 2px #0e2952;; 
       color: #fff;
       font-size: 12px;
 }
@@ -258,6 +259,26 @@ body{
   background-color: #4184ff;
   outline: none !important;
 }
+.button-event-delete{
+  outline: none !important;
+  height: 40px;
+  top: 90px;
+  left: 70px;
+  width: 110px;
+  box-shadow: 0 0 9px rgba(0,0,0,0.5); 
+  color: grey;
+  background-color: #dfddda;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+}
+
+.button-event-delete:active{
+  border: 1px solid grey;
+}
+
 .description{
   position: relative;
   top: 190px;

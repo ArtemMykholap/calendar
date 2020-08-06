@@ -3,11 +3,11 @@ import Hour from './Hour';
 import Event from './Event'
 class Day extends Component {
 
-    
+
 
 
     render() {
-        const { dataId, tasks } = this.props
+        const { dataId, tasks,} = this.props
         let taskData = [];
 
         taskData = tasks.filter(({ date }) => date === dataId.split(' ')[0])
@@ -15,7 +15,6 @@ class Day extends Component {
         for (let i = 0; i <= 23; i++) {
             hours.push(<Hour key={i} howHour={i} dataId={dataId.split(' ')[0]} />);
         }
-
 
         return (
             <li className='item-content' >
@@ -40,7 +39,8 @@ class Day extends Component {
                                 title={item.title}
                                 date={item.date}
                                 timeStart={item.timeStart}
-                                timeFinish={item.timeFinish} />
+                                timeFinish={item.timeFinish}
+                                />
                         );
                     }
                     )
