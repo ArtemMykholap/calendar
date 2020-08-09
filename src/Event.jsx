@@ -3,34 +3,29 @@ import moment from 'moment';
 import OutsideClickHandler from 'react-outside-click-handler';
 import PropTypes from 'prop-types';
 
-
-
 class Event extends Component {
 
     state = {
-        isOpen: false,
+        outsideClick: false,
         disabled: PropTypes.false
     }
 
     onOutsideClick = () => {
         this.setState({
-            isOpen: false
-
-
+            outsideClick: false
         });
     }
 
     showDelete = (event) => {
         event.preventDefault();
         this.setState({
-            isOpen: true,
+            outsideClick: true,
             disabled: PropTypes.true
-
         })
     }
 
     render() {
-        const { top, height, title, date, timeStart, timeFinish, onDelete, dataId,id } = this.props;
+        const { top, height, title, date, timeStart, timeFinish, onDelete, dataId, id } = this.props;
         const currentTime = moment().format("YYYYMMDDHHmm");
         const eventDate = `${date.replace(/-/g, "")}${timeStart.replace(':', "")}`;
         const expired = Number(currentTime) > Number(eventDate);
@@ -42,14 +37,13 @@ class Event extends Component {
                     height: height,
                     top: top,
                 }} >
-
                 <OutsideClickHandler
-                    disabled={!this.state.isOpen}
+                    disabled={!this.state.outsideClick}
                     onOutsideClick={() => {
                         this.onOutsideClick(); console.log('1');
                     }}
                 >
-                    {this.state.isOpen && <button
+                    {this.state.outsideClick && <button
                         className='button-event-delete' onClick={() => onDelete(id)}>
                         <i className="fa fa-trash" aria-hidden="true"></i>
                         <span style={{ margin: "10px" }}>Delete</span>

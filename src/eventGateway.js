@@ -34,7 +34,5 @@ export const deleteTask=id=>{
         if (!response.ok) {
             throw new Error('Failed to delete event');
         }
-    }
-    )
-
+    })
 }

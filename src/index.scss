@@ -10,6 +10,9 @@ body{
   background-color:rgb(248, 248, 248);
   margin: 0;
 }
+button{
+  cursor: pointer;
+}
 
 .container {
   height: 100vh;
@@ -22,14 +25,11 @@ body{
   background-color: #fff;
 }
 .header {
-  /* position:fixed;
-  background-color: #fff; */
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  min-width: 1330px;
   flex-direction: column;
   min-height: 80px;
-  align-items: flex-start;
   border: 1px solid  rgb(231, 231, 231);
 }
 .navigation-container{
@@ -43,7 +43,9 @@ body{
   background: #4fa1ec;
   margin: -5px;
   padding: 4px;
-  border-radius: 23px;
+  color: #fff;
+  border-radius: 36px;
+  box-shadow: 0 0 7px #4aa5fa; 
 }
 .weekday{
   color: #8a8a8a;
@@ -52,19 +54,16 @@ body{
   font-weight: 500;
 }
 
-
 .active{
   background-color: #5782ec;
   color: rgb(255, 255, 255);
   width: 50px;
   align-items: center;
-  /* text-align: center; */
   justify-content: center;
   display: flex;
   height: 50px;
   border-radius: 30px;
 }
-
 .time{
   width:40px;
 }
@@ -74,26 +73,20 @@ body{
   position: relative;
     top: 20px;
 }
-
 .navigation {
   margin-left: 27px;
   font-weight: 400;
 }
-
-
 .text-month{
   font-size: 27px;
   color: rgb(204, 204, 204);
   vertical-align: middle;
 }
-
 .table-header,
 .table-content {
   display: flex;
   list-style-type: none;
 }
-
-
 .create-button{
   font-weight:400;
   width: 140px;
@@ -103,12 +96,9 @@ body{
   box-shadow: 0 0 3px rgba(0,0,0,0.5); 
   outline: none !important; 
 }
-
-
 .button-text{
   font-weight:400;
   color:#8a8a8a ;
-  
 }
 .today-button{
   width: 100px;
@@ -118,13 +108,10 @@ body{
   box-shadow: 0 0 3px rgba(0,0,0,0.5); 
   outline: none !important; 
 }
-
 .create-button:hover,
 .today-button:hover {
   box-shadow: 0 0 0 2px #c2c2ff;
 }
-
-
 .toggle-left,
 .toggle-right{
   color: #afafaf;
@@ -133,8 +120,6 @@ body{
   margin-left: 22px;
   outline: none !important; 
 }
-
-
 .item-header{
   flex-grow: 1;
   align-items: center;
@@ -151,8 +136,6 @@ body{
     #e7e7e7
   ) 1 90%;
 }
-
-
 .item-content{
   flex-grow: 1;
 }
@@ -160,7 +143,6 @@ body{
   color: #7397ef;
   margin-right: 10px;
 }
-
 .item-header-time,
 .item-time-first-column{
   color: #797979;
@@ -175,10 +157,6 @@ body{
   border: 1px solid #e7e7e7 ;
   position: relative;
 }
-
-
-
-
 .item-time{
   flex-grow: 1;
   align-items: center;
@@ -192,8 +170,6 @@ body{
 .calendar{
   position: relative;
 }
-
-/* task */
 .task{
       position: absolute;
       padding: 15px;
@@ -204,14 +180,12 @@ body{
       box-shadow: 0 0 2px #0e2952;; 
       color: #fff;
       font-size: 12px;
-      transition-property: height;
+      transition: cubic-bezier(1,0,0,0) 2s;
  }
 
 .task:hover{
-  transition-delay:1s;
-  min-height:80px;
-  transition: .5s linear;
-
+  transition: cubic-bezier(1,0,0,0) 2s;
+  min-height:60px;
 }
 
 .task-check{
@@ -255,7 +229,6 @@ body{
   margin-left: 50px;
 }
 
-
 .modal-from__button-close{
   position: relative;
   border: none;
@@ -263,7 +236,6 @@ body{
   left: 400px;
   color: grey;
   outline: none !important;
-
 } 
 .button-save{
   position: relative;
@@ -304,9 +276,7 @@ right:0;
   font-size: 16px;
   color: #7c7c7c;
   display: flex;
-
 }
-
 
 .data{
   position: relative;
@@ -314,7 +284,6 @@ right:0;
   font-size: 16px;
   color:rgb(124, 124, 124);
 }
-
 
 .text-modal{
   margin-left: 20px;

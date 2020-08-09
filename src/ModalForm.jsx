@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 
-
-// +задать пустой стейт для инпутов
-// +Передать данные инпутов в объект сабмитом
-// +Добавить в массив объектов событий
-// перерендерить отрисовку событий
-
 class ModalForm extends Component {
     constructor() {
         super();
@@ -24,10 +18,10 @@ class ModalForm extends Component {
     }
 
     render() {
-        const { isOpen, onClose,  createTask } = this.props
+        const { isOpen, onClose, createTask } = this.props
         if (!isOpen) { return null }
         return (<>
-            <form onSubmit={(e) =>  createTask(this.state, e)} className="modal-form">
+            <form onSubmit={(e) => createTask(this.state, e)} className="modal-form">
                 <button className='modal-from__button-close'
                     onClick={onClose}>
                     <i className="fa fa-times" aria-hidden="true"></i>
