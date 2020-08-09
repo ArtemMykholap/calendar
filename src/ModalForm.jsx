@@ -24,7 +24,6 @@ class ModalForm extends Component {
     }
 
     render() {
-
         const { isOpen, onClose, handleSubmit } = this.props
         if (!isOpen) { return null }
         return (<>
@@ -35,19 +34,23 @@ class ModalForm extends Component {
                 </button>
                 <input autoComplete="off"
                     value={this.state.value}
-                    onSelect={this.handleChange}
+                    onChange={this.handleChange}
                     type='text' name='title'
+                    required minLength="3" maxLength="18"
                     className='modal-form__title' />
                 <div className='modal-form__line'></div>
                 <label className='data'>
                     <i className="fa fa-clock-o" aria-hidden="true"></i>
                     <input onChange={this.handleChange}
+                        required
                         value={this.state.value}
                         type="date" id="date" name='date' />
                     <input onChange={this.handleChange}
+                        required
                         value={this.state.value}
                         type="time" id="timeStart" name='timeStart' />
                     <input onChange={this.handleChange}
+                        required
                         value={this.state.value}
                         type="time" id="'timeFinish" name='timeFinish' />
                 </label>
@@ -56,6 +59,7 @@ class ModalForm extends Component {
                     <textarea
                         className='text-modal'
                         name='description'
+                        maxLength="140" rows="5"
                         placeholder="Дополнительное описание"
                         onChange={this.handleChange}
                         description={this.state.description}>
@@ -69,10 +73,8 @@ class ModalForm extends Component {
                 </button>
 
             </form>
-            <App />
+
         </>
-
-
         )
     }
 }

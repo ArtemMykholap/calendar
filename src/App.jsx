@@ -13,9 +13,9 @@ class App extends Component {
         currentDate: moment().week('week'),
         isOpen: false,
         tasks: [
-            { title: 'breakfest', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-07-29' },
-            { title: 'dinner', description: 'breakfestbreakfest', timeStart: '11:30', timeFinish: '12:00', date: '2020-08-10' },
-            { title: 'supper', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-08-03' }
+            { title: 'breakfest', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-08-06',id:'2020-08-0712:3014:00' },
+            { title: 'dinner', description: 'breakfestbreakfest', timeStart: '11:30', timeFinish: '12:00', date: '2020-08-07',id:'2020-08-0711:3012:00' },
+            { title: 'supper', description: 'breakfestbreakfest', timeStart: '06:37', timeFinish: '07:37', date: '2020-08-07', id:'2020-08-0706:3707:37'}
         ]
     }
 
@@ -28,7 +28,9 @@ class App extends Component {
             description: value.description,
             timeStart: value.timeStart,
             timeFinish: value.timeFinish,
-            date: value.date
+            date: value.date,
+            id:`${value.date}${value.timeStart}${value.timeFinish}`
+        
         }
 
         this.setState(function (prevState) {
@@ -36,11 +38,22 @@ class App extends Component {
         });
         this.hideForm()
     }
-    // вешаем обработчик на контекстное меню,представлющее собой кнопку удаления
-    // скрываем контекстное меню при клике вне области меню
 
-    // фильтруем массив задач на все,кроме указаного ивента.
-    // выводим новый массив ивентов
+    handleEventDelete=(id)=>{
+        const updatedTasks=this.state.tasks
+        .filter(task=>task.id !==id);
+        this.setState({
+            tasks:updatedTasks
+        })
+        
+    }
+
+
+    //+ вешаем обработчик на контекстное меню,представлющее собой кнопку удаления
+    //+ скрываем контекстное меню при клике вне области меню
+
+    // +фильтруем массив задач на все,кроме указаного ивента.
+    // +выводим новый массив ивентов
 
 
     hideForm = () => {
@@ -81,7 +94,6 @@ class App extends Component {
         let nameMonthFirstDay = weekStart.format("MMMM");
         let nameMonthLastDay = currentDate.clone().endOf('isoWeek').format("MMMM");
 
-
         return (<>
             <div className="container">
                 <Navigation goNext={this.goNext}
@@ -100,7 +112,8 @@ class App extends Component {
                         <Week
                             days={days} tasks={this.state.tasks}
                             contextMenu={this.state.contextMenu}
-                            showForm={this. showContextMenu} />
+                            showForm={this.showContextMenu}
+                            onDelete={this.handleEventDelete} />
                     </ul>
                 </div>
                 <ModalForm isOpen={this.state.isOpen}

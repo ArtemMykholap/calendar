@@ -5,10 +5,10 @@ class Week extends Component {
 
     render() {
 
-        const { days, tasks } = this.props
+        const { days, tasks,onDelete,id } = this.props
         return (
             <>
-                {days.map(day => <Day key={day} dataId={day} tasks={tasks} />)}
+                {days.map(day => <Day key={day}  dataId={day} tasks={tasks} onDelete={onDelete} id={id}/>)}
             </>
         )
     }

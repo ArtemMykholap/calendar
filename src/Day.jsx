@@ -7,9 +7,9 @@ class Day extends Component {
 
 
     render() {
-        const { dataId, tasks,} = this.props
+ 
+        const { dataId, tasks, onDelete} = this.props
         let taskData = [];
-
         taskData = tasks.filter(({ date }) => date === dataId.split(' ')[0])
         let hours = [];
         for (let i = 0; i <= 23; i++) {
@@ -31,7 +31,6 @@ class Day extends Component {
                         let myTimeFinish = item.timeFinish.split(':');
                         let myTimeStartInMinutes = Number(myTimeStart[0]) * 60 + Number(myTimeStart[1]);
                         let myTimeFinishInMinutes = Number(myTimeFinish[0]) * 60 + Number(myTimeFinish[1]);
-
                         let timeDiff = Math.abs(myTimeStartInMinutes - myTimeFinishInMinutes)
                         return (
                             <Event key={`${item.title}${item.description}`} height={timeDiff}
@@ -40,7 +39,9 @@ class Day extends Component {
                                 date={item.date}
                                 timeStart={item.timeStart}
                                 timeFinish={item.timeFinish}
-                                />
+                                onDelete={onDelete}
+                                id={item.id}
+                            />
                         );
                     }
                     )

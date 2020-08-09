@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import Header from './Header';
 import Week from './Week';
-// import getDataHelper from './GetDataHelper';
 
 
 
@@ -11,6 +10,8 @@ class Navigation extends Component {
 
 
     render() {
+        let today = moment().week('week').format('YYYY-MM-DD dddd');
+        console.log(today)
         const { goNext, goPrev,
             returnToday,
             nameMonthFirstDay,
@@ -31,9 +32,9 @@ class Navigation extends Component {
                         const date = day.split(' ')[0].split('-')[2];
                         const weekDay = day.split(' ')[1];
                         return (
-                            <li className='item-header' key={day}>
+                            <li className='item-header ' key={day}>
                                 <span className=' weekday' >{weekDay}</span>
-                                <span className=' month-day'>{date}</span>
+                                <span className={' month-day ' + (day === today ? 'month-day-active' : '')}>{date}</span>
                             </li>
                         )
                     })}

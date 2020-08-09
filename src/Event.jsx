@@ -9,7 +9,7 @@ class Event extends Component {
 
     state = {
         isOpen: false,
-    disabled:PropTypes.false
+        disabled: PropTypes.false
     }
 
     onOutsideClick = () => {
@@ -24,13 +24,13 @@ class Event extends Component {
         event.preventDefault();
         this.setState({
             isOpen: true,
-            disabled:PropTypes.true
-           
+            disabled: PropTypes.true
+
         })
     }
 
     render() {
-        const { top, height, title, date, timeStart, timeFinish } = this.props;
+        const { top, height, title, date, timeStart, timeFinish, onDelete, dataId,id } = this.props;
         const currentTime = moment().format("YYYYMMDDHHmm");
         const eventDate = `${date.replace(/-/g, "")}${timeStart.replace(':', "")}`;
         const expired = Number(currentTime) > Number(eventDate);
@@ -44,13 +44,13 @@ class Event extends Component {
                 }} >
 
                 <OutsideClickHandler
-                disabled={!this.state.isOpen}
+                    disabled={!this.state.isOpen}
                     onOutsideClick={() => {
                         this.onOutsideClick(); console.log('1');
                     }}
                 >
                     {this.state.isOpen && <button
-                        className='button-event-delete'>
+                        className='button-event-delete' onClick={() => onDelete(id)}>
                         <i className="fa fa-trash" aria-hidden="true"></i>
                         <span style={{ margin: "10px" }}>Delete</span>
                     </button>} </OutsideClickHandler>
