@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import App from './App'
+
 
 // +задать пустой стейт для инпутов
 // +Передать данные инпутов в объект сабмитом
@@ -24,10 +24,10 @@ class ModalForm extends Component {
     }
 
     render() {
-        const { isOpen, onClose, handleSubmit } = this.props
+        const { isOpen, onClose,  createTask } = this.props
         if (!isOpen) { return null }
         return (<>
-            <form onSubmit={(e) => handleSubmit(this.state, e)} className="modal-form">
+            <form onSubmit={(e) =>  createTask(this.state, e)} className="modal-form">
                 <button className='modal-from__button-close'
                     onClick={onClose}>
                     <i className="fa fa-times" aria-hidden="true"></i>

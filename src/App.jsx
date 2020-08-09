@@ -4,56 +4,49 @@ import Sidebar from './Sidebar';
 import Week from './Week';
 import moment from 'moment';
 import ModalForm from './ModalForm'
+import { createTask, fetchTasksList, deleteTask } from './eventGateway';
+
 
 
 
 class App extends Component {
-
     state = {
         currentDate: moment().week('week'),
         isOpen: false,
-        tasks: [
-            { title: 'breakfest', description: 'breakfestbreakfest', timeStart: '12:30', timeFinish: '14:00', date: '2020-08-06',id:'2020-08-0712:3014:00' },
-            { title: 'dinner', description: 'breakfestbreakfest', timeStart: '11:30', timeFinish: '12:00', date: '2020-08-07',id:'2020-08-0711:3012:00' },
-            { title: 'supper', description: 'breakfestbreakfest', timeStart: '06:37', timeFinish: '07:37', date: '2020-08-07', id:'2020-08-0706:3707:37'}
-        ]
+        tasks: []
+    }
+    componentDidMount() {
+        this.fetchTasks();
     }
 
+    fetchTasks = () => {
+        fetchTasksList()
+            .then(tasksList =>
+                this.setState({
+                    tasks: tasksList,
+                })
+            );
+    }
 
-    handleSubmit = (value, e) => {
+    createTask = (value, e) => {
         e.preventDefault();
-
         const newTask = {
             title: value.title,
             description: value.description,
             timeStart: value.timeStart,
             timeFinish: value.timeFinish,
             date: value.date,
-            id:`${value.date}${value.timeStart}${value.timeFinish}`
-        
         }
 
-        this.setState(function (prevState) {
-            return { tasks: [...prevState.tasks, newTask] }
-        });
+        createTask(newTask)
+            .then(() => this.fetchTasks());
+
         this.hideForm()
     }
 
-    handleEventDelete=(id)=>{
-        const updatedTasks=this.state.tasks
-        .filter(task=>task.id !==id);
-        this.setState({
-            tasks:updatedTasks
-        })
-        
+    handleEventDelete = (id) => {
+        deleteTask(id).then(() => this.fetchTasks())
     }
-
-
-    //+ вешаем обработчик на контекстное меню,представлющее собой кнопку удаления
-    //+ скрываем контекстное меню при клике вне области меню
-
-    // +фильтруем массив задач на все,кроме указаного ивента.
-    // +выводим новый массив ивентов
 
 
     hideForm = () => {
@@ -73,11 +66,13 @@ class App extends Component {
             currentDate: this.state.currentDate.add(1, 'week')
         })
     }
+
     goPrev = () => {
         this.setState({
             currentDate: this.state.currentDate.add(-1, 'week')
         })
     }
+
     returnToday = () => {
         this.setState({
             currentDate: moment().week('week')
@@ -106,7 +101,7 @@ class App extends Component {
                     showForm={this.showForm} />
                 <div className="calendar">
                     <ul className="table-content">
-                        <li className='item-content-time'>
+                        <li className="item-content-time">
                             <Sidebar />
                         </li>
                         <Week
@@ -119,7 +114,7 @@ class App extends Component {
                 <ModalForm isOpen={this.state.isOpen}
                     onClose={this.hideForm}
                     tasks={this.state.tasks}
-                    handleSubmit={this.handleSubmit}
+                    createTask={this.createTask}
                 />
             </div>
 

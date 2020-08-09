@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Header from './Header';
-import Week from './Week';
-
-
 
 class Navigation extends Component {
-
-
-
     render() {
         let today = moment().week('week').format('YYYY-MM-DD dddd');
-        console.log(today)
         const { goNext, goPrev,
             returnToday,
             nameMonthFirstDay,
