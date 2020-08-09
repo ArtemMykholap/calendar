@@ -7,8 +7,6 @@ import ModalForm from './ModalForm'
 import { createTask, fetchTasksList, deleteTask } from './eventGateway';
 
 
-
-
 class App extends Component {
     state = {
         currentDate: moment().week('week'),
@@ -47,7 +45,6 @@ class App extends Component {
     handleEventDelete = (id) => {
         deleteTask(id).then(() => this.fetchTasks())
     }
-
 
     hideForm = () => {
         this.setState({
@@ -88,7 +85,6 @@ class App extends Component {
         }
         let nameMonthFirstDay = weekStart.format("MMMM");
         let nameMonthLastDay = currentDate.clone().endOf('isoWeek').format("MMMM");
-
         return (<>
             <div className="container">
                 <Navigation goNext={this.goNext}
@@ -117,7 +113,6 @@ class App extends Component {
                     createTask={this.createTask}
                 />
             </div>
-
         </>
         )
     }
