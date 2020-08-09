@@ -40,7 +40,7 @@ button{
   color: rgb(180, 179, 179)
 }
 .month-day-active{
-  background: #4fa1ec;
+  background: #5c9bfa;;
   margin: -5px;
   padding: 4px;
   color: #fff;
@@ -88,13 +88,15 @@ button{
   list-style-type: none;
 }
 .create-button{
+  background: #e6eefa;
   font-weight:400;
   width: 140px;
   border-radius: 25px;
   height: 45px;
   border: none;
-  box-shadow: 0 0 3px rgba(0,0,0,0.5); 
+  box-shadow: 0 0 3px #a2a8b1; 
   outline: none !important; 
+  transition: .3s;
 }
 .button-text{
   font-weight:400;
@@ -105,12 +107,17 @@ button{
   border-radius: 5px;
   border: none;
   height: 45px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.5); 
+  box-shadow: 0 0 3px #a2a8b1; 
   outline: none !important; 
+  transition: .3s;
+  background: #e6eefa;
 }
+
+
 .create-button:hover,
 .today-button:hover {
-  box-shadow: 0 0 0 2px #c2c2ff;
+  background: #b6d2fd;
+
 }
 .toggle-left,
 .toggle-right{
@@ -171,6 +178,9 @@ button{
   position: relative;
 }
 .task{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
       position: absolute;
       padding: 15px;
       width: 160px;
@@ -180,12 +190,15 @@ button{
       box-shadow: 0 0 2px #0e2952;; 
       color: #fff;
       font-size: 12px;
-      transition: cubic-bezier(1,0,0,0) 2s;
+      min-height: 0;
+      transition: .7s;
+  
+ 
  }
 
 .task:hover{
-  transition: cubic-bezier(1,0,0,0) 2s;
-  min-height:60px;
+transition-delay: .3s;
+min-height:60px;
 }
 
 .task-check{
@@ -195,6 +208,7 @@ button{
 .time-of-task{
   font-weight: 300;
   padding-top: 10px;
+  min-height: 10px;
 }
 
  .modal-form {
