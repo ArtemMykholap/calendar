@@ -26,10 +26,12 @@ class ModalForm extends Component {
                     onClick={onClose}>
                     <i className="fa fa-times" aria-hidden="true"></i>
                 </button>
+                
                 <input autoComplete="off"
                     value={this.state.value}
                     onChange={this.handleChange}
                     type='text' name='title'
+                    placeholder='text of event'
                     required minLength="3" maxLength="18"
                     className='modal-form__title' />
                 <div className='modal-form__line'></div>
@@ -54,7 +56,7 @@ class ModalForm extends Component {
                         className='text-modal'
                         name='description'
                         maxLength="140" rows="5"
-                        placeholder="Дополнительное описание"
+                        placeholder="description"
                         onChange={this.handleChange}
                         description={this.state.description}>
                     </textarea>

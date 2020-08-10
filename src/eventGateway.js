@@ -9,7 +9,7 @@ export const createTask=taskData=>{
         body: JSON.stringify(taskData),
     }).then(response => {
         if (!response.ok) {
-            throw new Error('Failed to create event');
+            throw new Error("Internal Server Error. Can't display events");
         } 
     })
 }
@@ -19,7 +19,7 @@ export const fetchTasksList=()=>{
     .then(res => {
         if (res.ok) {
             return res.json();
-        }
+        } 
     }).then(tasksList => {
         return tasksList.map(({ _id, ...task }) => ({
              id: _id,
@@ -32,7 +32,7 @@ export const deleteTask=id=>{
         method: 'DELETE',
     }).then(response => {
         if (!response.ok) {
-            throw new Error('Failed to delete event');
+            throw new Error("Internal Server Error. Can't display events");
         }
     })
 }

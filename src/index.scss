@@ -12,6 +12,8 @@ body{
 }
 button{
   cursor: pointer;
+  position: relative;
+  border: none;
 }
 
 .container {
@@ -243,8 +245,7 @@ min-height:60px;
 }
 
 .modal-from__button-close{
-  position: relative;
-  border: none;
+
   background-color: #fff;
   left: 400px;
   color: grey;
