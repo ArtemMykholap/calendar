@@ -22,7 +22,7 @@ class ModalForm extends Component {
         if (!isOpen) { return null }
         return (<>
             <form onSubmit={(e) => createTask(this.state, e)} className="modal-form">
-                <button className='modal-from__button-close'
+                <button className='modal-form__button-close'
                     onClick={onClose}>
                     <i className="fa fa-times" aria-hidden="true"></i>
                 </button>
@@ -35,7 +35,7 @@ class ModalForm extends Component {
                     required minLength="3" maxLength="18"
                     className='modal-form__title' />
                 <div className='modal-form__line'></div>
-                <label className='data'>
+                <label className='modal-form__data'>
                     <i className="fa fa-clock-o" aria-hidden="true"></i>
                     <input onChange={this.handleChange}
                         required
@@ -48,12 +48,12 @@ class ModalForm extends Component {
                     <input onChange={this.handleChange}
                         required
                         value={this.state.value}
-                        type="time" id="'timeFinish" name='timeFinish' />
+                        type="time" id="timeFinish" name='timeFinish' />
                 </label>
-                <label className='description'>
+                <label className='modal-form__description'>
                     <i className="fa fa-bars" aria-hidden="true"></i>
                     <textarea
-                        className='text-modal'
+                        className='modal-form__description_text-modal'
                         name='description'
                         maxLength="140" rows="5"
                         placeholder="description"
@@ -63,7 +63,7 @@ class ModalForm extends Component {
                 </label>
                 <button
                     type='submit'
-                    className='button-save'
+                    className='modal-form__button-save'
                 >
                     Сохранить
                 </button>
