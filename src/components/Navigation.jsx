@@ -3,7 +3,41 @@ import moment from 'moment';
 import Header from './Header';
 
 const Navigation = ({ goNext, goPrev, returnToday, nameMonthFirstDay, nameMonthLastDay, days, showForm }) => {
-    let today = moment().week('week').format('YYYY-MM-DD dddd');
+    let today = moment().week('week').format('DD');
+    // let today = moment().week('week').format('YYYY-MM-DD dddd');
+    let dayWeek =
+    [{
+        dayType: 'Mon',
+        dayNumber: null
+    },
+    {
+        dayType: 'Tue',
+        dayNumber: null
+    },
+    {
+        dayType: 'Wed',
+        dayNumber:  null
+    },
+    {
+        dayType: 'Thu',
+        dayNumber: null
+    },
+    {
+        dayType: 'Fri',
+        dayNumber: null
+    },
+    {
+        dayType: 'Sat',
+        dayNumber:  null
+    },
+    {
+        dayType: 'Sun',
+        dayNumber: null
+    }
+    ]
+    days.forEach((day, i) => {
+        dayWeek[i].dayNumber = day;
+      });
     return (
         <>
             <Header goNext={goNext}
@@ -12,21 +46,18 @@ const Navigation = ({ goNext, goPrev, returnToday, nameMonthFirstDay, nameMonthL
                 nameMonthFirstDay={nameMonthFirstDay}
                 nameMonthLastDay={nameMonthLastDay}
                 showForm={showForm} />
-            <ul className="table-header ">
-                < li className=' item-header-time'>
+            <div className="table-header ">
+                < div className=' item-header-time'>
                     <span className='item-header__time'>gtp</span>
-                </li>
-                {days.map(day => {
-                    const date = day.split(' ')[0].split('-')[2];
-                    const weekDay = day.split(' ')[1];
+                </div>
+                {  dayWeek.map(day => {
                     return (
-                        <li className='item-header ' key={day}>
-                            <span className=' weekday' >{weekDay}</span>
-                            <span className={' month-day ' + (day === today ? 'month-day-active' : '')}>{date}</span>
-                        </li>
-                    )
+                        <div className='item-header ' >
+                            <span className=' weekday' >{day.dayType}</span>
+                            <span className={'month-day' + (day.dayNumber === today ? ' active' : '')}>{day.dayNumber}</span>
+                        </div>)
                 })}
-            </ul>
+            </div>
         </>
     )
 }

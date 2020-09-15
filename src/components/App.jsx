@@ -81,8 +81,10 @@ class App extends Component {
         let weekStart = currentDate.clone().startOf('isoWeek');
         let days = [];
         for (let i = 0; i <= 6; i++) {
-            days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD dddd"));
-        }
+                days.push(moment(weekStart).add(i, 'days').format("DD"));
+                
+                // days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD dddd"));
+        }console.log(days)
         let nameMonthFirstDay = weekStart.format("MMMM");
         let nameMonthLastDay = currentDate.clone().endOf('isoWeek').format("MMMM");
         return (<>
@@ -96,16 +98,16 @@ class App extends Component {
                     isOpen={this.state.isOpen}
                     showForm={this.showForm} />
                 <div className="calendar">
-                    <ul className="table-content">
-                        <li className="item-content-time">
+                    <div className="table-content">
+                        <div className="item-content-time">
                             <Sidebar />
-                        </li>
+                        </div>
                         <Week
                             days={days} tasks={this.state.tasks}
                             contextMenu={this.state.contextMenu}
                             showForm={this.showContextMenu}
                             onDelete={this.handleEventDelete} />
-                    </ul>
+                    </div>
                 </div>
                 <ModalForm isOpen={this.state.isOpen}
                     onClose={this.hideForm}
