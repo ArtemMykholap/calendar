@@ -1,5 +1,5 @@
 import React from 'react';
-import Day from './Day'
+import Day from '../day/Day'
 
 const Week = ({ days, tasks, onDelete, id }) => {
     return (

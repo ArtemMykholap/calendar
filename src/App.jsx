@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Navigation from './Navigation';
-import Sidebar from './Sidebar';
-import Week from './Week';
+import Navigation from './components/navigation/Navigation';
+import Sidebar from './components/sidebar/Sidebar';
+import Week from './components/week/Week';
 import moment from 'moment';
-import ModalForm from './ModalForm'
-import { createTask, fetchTasksList, deleteTask } from './eventGateway';
+import ModalForm from './components/modalForm/ModalForm'
+import { createTask, fetchTasksList, deleteTask } from './gateway/eventGateway';
 
 
 class App extends Component {
@@ -79,12 +79,16 @@ class App extends Component {
     render() {
         let currentDate = this.state.currentDate;
         let weekStart = currentDate.clone().startOf('isoWeek');
-        let days = [];
-        for (let i = 0; i <= 6; i++) {
-                days.push(moment(weekStart).add(i, 'days').format("DD"));
-                
-                // days.push(moment(weekStart).add(i, 'days').format("YYYY-MM-DD dddd"));
-        }console.log(days)
+        let numbersOfWeekDays=[0,1,2,3,4,5,6]
+        let days = numbersOfWeekDays.map((day) =>{  
+          return{
+               weekDay: moment(weekStart).add(day, 'days').format("dddd"),
+                day: moment(weekStart).add(day, 'days').format("DD"),
+                month: moment(weekStart).add(day, 'days').format("MM"),
+                year: moment(weekStart).add(day, 'days').format("YYYY"),
+            }    
+        })
+
         let nameMonthFirstDay = weekStart.format("MMMM");
         let nameMonthLastDay = currentDate.clone().endOf('isoWeek').format("MMMM");
         return (<>

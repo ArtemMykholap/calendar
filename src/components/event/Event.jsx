@@ -25,7 +25,7 @@ class Event extends Component {
     }
 
     render() {
-        const { top, height, title, date, timeStart, timeFinish, onDelete, dataId, id } = this.props;
+        const { top, height, title, date, timeStart, timeFinish, onDelete, id } = this.props;
         const currentTime = moment().format("YYYYMMDDHHmm");
         const eventDate = `${date.replace(/-/g, "")}${timeStart.replace(':', "")}`;
         const expired = Number(currentTime) > Number(eventDate);
@@ -40,7 +40,7 @@ class Event extends Component {
                 <OutsideClickHandler
                     disabled={!this.state.outsideClick}
                     onOutsideClick={() => {
-                        this.onOutsideClick(); console.log('1');
+                        this.onOutsideClick();
                     }}
                 >
                     {this.state.outsideClick && <button

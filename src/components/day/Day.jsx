@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
-import Hour from './Hour';
-import Event from './Event'
+import React from 'react';
+import Hour from '../hour/Hour';
+import Event from '../event/Event'
 
 
 
 const Day = ({ dataId, tasks, onDelete }) => {
     let taskData = [];
-    taskData = tasks.filter(({ date }) => date === dataId.split(' ')[0])
-    let hours = [];
-    for (let i = 0; i <= 23; i++) {
-        hours.push(<Hour key={i} howHour={i} dataId={dataId.split(' ')[0]} />);
-    }
+    taskData = tasks.filter(({ date }) => date === `${dataId.year}-${dataId.month}-${dataId.day}`)
+    let hours =  Array(24).fill().map(el =>(<Hour key={el} howHour={el}  dataId={dataId}/>))
+
     return (
-        <li className='item-content' >
+        <div className='item-content' >
             {hours}
             {
                 taskData && taskData.map((item) => {
@@ -34,7 +32,7 @@ const Day = ({ dataId, tasks, onDelete }) => {
                     );
                 })
             }
-        </li >
+        </div>
     )
 }
 
