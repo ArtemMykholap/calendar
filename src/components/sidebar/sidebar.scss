@@ -1,0 +1,13 @@
+.item-time-first-column {
+    color: #797979;
+    font-weight: 300;
+    flex-grow: 1;
+    align-items: center;
+    min-width: 70px;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #e7e7e7;
+    position: relative;
+}

@@ -1,0 +1,49 @@
+.task {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    padding: 15px;
+    width: 160px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #2665c5;
+    box-shadow: 0 0 2px #0e2952;
+    color: #fff;
+    font-size: 12px;
+    min-height: 0;
+    transition: 0.5s;
+    &:hover {
+        min-height: 60px;
+    }
+}
+
+.task-check {
+    background-color: #5f728f;
+}
+
+.time-of-task {
+    font-weight: 300;
+    padding-top: 10px;
+    min-height: 10px;
+}
+
+.button-event-delete {
+    outline: none !important;
+    height: 40px;
+    top: 100%;
+    right: 0;
+    width: 110px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.5);
+    color: grey;
+    background-color: #dfddda;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+}
+
+.button-event-delete:active {
+    border: 1px solid grey;
+}

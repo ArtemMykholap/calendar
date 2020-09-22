@@ -1,0 +1,80 @@
+.table-header,
+.table-content {
+    display: flex;
+    list-style-type: none;
+}
+
+.item-header-time {
+    color: #797979;
+    font-weight: 300;
+    flex-grow: 1;
+    align-items: center;
+    min-width: 70px;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #e7e7e7;
+    position: relative;
+}
+
+.active {
+    background-color: #5782ec;
+    color: rgb(255, 255, 255);
+    width: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 50px;
+    border-radius: 30px;
+}
+
+.calendar {
+    position: relative;
+}
+
+.time-in-column {
+    font-size: 12px;
+    color: #8a8a8a;
+    position: relative;
+    top: 20px;
+}
+
+.fa-plus {
+    color: #7397ef;
+    margin-right: 10px;
+}
+
+.time {
+    width: 40px;
+}
+
+.item-header {
+    flex-grow: 1;
+    align-items: center;
+    min-width: 180px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid;
+    border-image: linear-gradient(to bottom, #ffffff, #e7e7e7) 1 90%;
+    .weekday {
+        color: #8a8a8a;
+        margin-bottom: 12px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .month-day {
+        font-size: 30px;
+        color: rgb(180, 179, 179);
+    }
+    .month-day-active {
+        background: #5c9bfa;
+        margin: -5px;
+        padding: 4px;
+        color: #fff;
+        border-radius: 36px;
+        box-shadow: 0 0 7px #4aa5fa;
+    }
+}

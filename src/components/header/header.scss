@@ -1,0 +1,43 @@
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+    border: 1px solid rgb(231, 231, 231);
+    &__button_create {
+        background: #e6eefa;
+        font-weight: 400;
+        min-width: 140px;
+        border-radius: 5px;
+        height: 45px;
+        margin-left: 40px;
+        transition: 0.3s;
+        &:hover {
+            background: #b6d2fd;
+        }
+    }
+    &__button_today {
+        min-width: 120px;
+        border-radius: 5px;
+        height: 45px;
+        margin: 0 40px;
+        transition: 0.3s;
+        background: #e6eefa;
+        &:hover {
+            background: #b6d2fd;
+        }
+    }
+    &__toggle-right,
+    &__toggle-left {
+        min-width: 50px;
+        display: block;
+        color: #afafaf;
+        box-shadow: none;
+        background: none;
+    }
+    &__text-month {
+        margin: 30px;
+        font-size: 30px;
+        color: rgb(180, 179, 179);
+    }
+}

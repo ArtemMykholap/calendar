@@ -1,0 +1,105 @@
+.modal-form {
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    padding: 25px;
+    background: #ffffff;
+    box-shadow: 0 0 10px #00000080;
+    border-radius: 8px;
+    height: 420px;
+    width: 480px;
+    &__title {
+        font-size: 24px;
+        border: none;
+        font-weight: 400;
+        margin-left: 57px;
+        color: #484646;
+        top: 30px;
+        position: relative;
+        outline: none !important;
+        &::placeholder {
+            color: #bebebe;
+            font-weight: 400;
+            font-size: 20px;
+        }
+    }
+    &__description {
+        position: relative;
+        top: 190px;
+        font-weight: 300;
+        font-size: 16px;
+        color: #7c7c7c;
+        display: flex;
+        &::placeholder {
+            color: #bebebe;
+            font-weight: 400;
+        }
+    }
+    &__data {
+        position: relative;
+        top: 100px;
+        left: 15px;
+        font-size: 16px;
+        color: rgb(124, 124, 124);
+        #timeStart,
+        #timeFinish,
+        #date {
+            border-radius: 3px;
+            border: 1px solid #969696;
+            outline: none !important;
+            margin-left: 10px;
+            left: 10px;
+            color: #817373;
+            position: relative;
+        }
+    }
+    &__line {
+        background-color: #4184ff;
+        top: 32px;
+        height: 2px;
+        width: 355px;
+        margin-left: 60px;
+        position: relative;
+    }
+    &__button-close {
+        background-color: #fff;
+        box-shadow: none;
+        left: 400px;
+        color: grey;
+    }
+    &__button-save {
+        position: relative;
+        top: 180px;
+        left: 310px;
+        height: 40px;
+        width: 110px;
+        color: #fff;
+        border-radius: 5px;
+        background-color: #4184ff;
+    }
+    &__data {
+        position: relative;
+        top: 130px;
+        font-size: 16px;
+        color: rgb(124, 124, 124);
+    }
+    &__description {
+        position: relative;
+        top: 170px;
+        left: 15px;
+        font-weight: 400;
+        font-size: 16px;
+        color: #7c7c7c;
+        display: flex;
+        &_text-modal {
+            margin-left: 20px;
+            border: none;
+            color: rgb(136, 161, 197);
+            outline: none !important;
+            resize: none;
+            width: 200px;
+        }
+    }
+}

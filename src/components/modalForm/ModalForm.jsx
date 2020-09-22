@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './modalForm.scss'
 
 class ModalForm extends Component {
     constructor() {
