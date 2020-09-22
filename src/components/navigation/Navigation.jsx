@@ -28,7 +28,6 @@ class Navigation extends Component {
         })
     }
 
-
     render() {
         let weekStart = this.state.currentDate.clone().startOf('isoWeek');
         let nameMonthFirstDay = weekStart.format("MMMM");
@@ -42,9 +41,7 @@ class Navigation extends Component {
                 year: moment(weekStart).add(day, 'days').format("YYYY"),
             }
         })
-
         let today = `${moment().week('week').format('DD')}${moment().week('week').format('MM')}`;
-
         return (
             <>
                 <Header goNext={this.goNext}
